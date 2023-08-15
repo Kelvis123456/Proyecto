@@ -1,0 +1,120 @@
+java
+// Clase Usuario
+public class Usuario {
+    private String nombreUsuario;
+    private String nombre;
+    private String apellido;
+    private String telefono;
+    private String correo;
+    private String contraseña;
+
+    public Usuario(String nombreUsuario, String nombre, String apellido, String telefono, String correo, String contraseña) {
+        this.nombreUsuario = nombreUsuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.contraseña = contraseña;
+    }
+
+    public void actualizarDatos(String nombre, String apellido, String telefono, String correo, String contraseña) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.contraseña = contraseña;
+    }
+
+    public void eliminarUsuario() {
+        // Lógica para eliminar usuario
+    }
+}
+
+// Clase GestorUsuarios
+public class GestorUsuarios {
+    private List<Usuario> usuarios;
+
+    public GestorUsuarios() {
+        this.usuarios = new ArrayList<>();
+    }
+
+    public void agregarUsuario(Usuario usuario) {
+        this.usuarios.add(usuario);
+    }
+
+    public void mostrarUsuarios() {
+        for (Usuario usuario : usuarios) {
+            System.out.println("Nombre: " + usuario.getNombre() + ", Teléfono: " + usuario.getTelefono() + ", Correo: " + usuario.getCorreo());
+        }
+    }
+}
+
+// Clase Producto
+public class Producto {
+    private String nombre;
+    private String marca;
+    private String categoria;
+    private double precio;
+    private int cantidadDisponible;
+
+    public Producto(String nombre, String marca, String categoria, double precio, int cantidadDisponible) {
+        this.nombre = nombre;
+        this.marca = marca;
+        this.categoria = categoria;
+        this.precio = precio;
+        this.cantidadDisponible = cantidadDisponible;
+    }
+
+    public void actualizarDatos(String nombre, String marca, String categoria, double precio, int cantidadDisponible) {
+        this.nombre = nombre;
+        this.marca = marca;
+        this.categoria = categoria;
+        this.precio = precio;
+        this.cantidadDisponible = cantidadDisponible;
+    }
+
+    public void eliminarProducto() {
+        // Lógica para eliminar producto
+    }
+}
+
+// Clase GestorProductos
+public class GestorProductos {
+    private List<Producto> productos;
+
+    public GestorProductos() {
+        this.productos = new ArrayList<>();
+    }
+
+    public void agregarProducto(Producto producto) {
+        this.productos.add(producto);
+    }
+
+    public void mostrarProductos() {
+        for (Producto producto : productos) {
+            System.out.println("Nombre: " + producto.getNombre() + ", Marca: " + producto.getMarca() + ", Precio: " + producto.getPrecio());
+        }
+    }
+}
+
+// Clase Principal
+public class Main {
+    public static void main(String[] args) {
+        GestorUsuarios gestorUsuarios = new GestorUsuarios();
+        GestorProductos gestorProductos = new GestorProductos();
+
+        // Lógica de inicio de sesión, registro de usuarios, etc.
+
+        // Ejemplo de uso: agregar un usuario
+        Usuario usuario1 = new Usuario("user1", "John", "Doe", "123456789", "john@example.com", "password");
+        gestorUsuarios.agregarUsuario(usuario1);
+
+        // Ejemplo de uso: agregar un producto
+        Producto producto1 = new Producto("Producto1", "Marca1", "Categoría1", 10.99, 50);
+        gestorProductos.agregarProducto(producto1);
+
+        // Ejemplo de uso: mostrar usuarios y productos
+        gestorUsuarios.mostrarUsuarios();
+        gestorProductos.mostrarProductos();
+    }
+}
